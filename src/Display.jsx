@@ -7,7 +7,8 @@ const Display = () => {
   useEffect(() => {
     const fd = async () => {
       try {
-        const api = "http://localhost:5001/api/check";
+       const api = "https://google-sheet-in-node-trying.onrender.com/api/check";
+
         const res = await axios.get(api);
         setData(res.data);
         console.log(res.data);

@@ -21,7 +21,8 @@ const InsertData = () => {
   }, [formData]);
 
   const handleSubmit = async () => {
-    let api = "http://localhost:5001/api/update";
+    let api = "https://google-sheet-in-node-trying.onrender.com/api/update";
+
     try {
       let res = await axios.post(api, formData);
       console.log(res.data);
