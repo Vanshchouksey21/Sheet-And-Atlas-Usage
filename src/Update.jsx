@@ -19,6 +19,19 @@ const Update = () => {
     fd();
   }, []);
 
+
+const hd = async (id) => {
+  try {
+    await axios.delete(`https://google-sheet-in-node-trying.onrender.com/api/delete/${id}`);
+    const res = await axios.get("https://google-sheet-in-node-trying.onrender.com/api/check");
+    setData(res.data);
+    console.log(res.data);
+  } catch (error) {
+    console.error("Delete error:", error);
+    alert("Failed to delete record");
+  }
+};
+
   return (
     <div
       style={{
@@ -83,7 +96,11 @@ const Update = () => {
                 <td style={tdStyle}>{e.id}</td>
                 <td style={tdStyle}>{e.name}</td>
                 <td style={tdStyle}>{e.email}</td>
-              </tr>
+                <td style={tdStyle}>
+                    <button
+                    onClick={() =>{hd(e.id)}}>delete</button>
+                </td>
+              </tr> 
             ))}
           </tbody>
         </table>
